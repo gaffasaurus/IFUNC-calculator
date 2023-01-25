@@ -138,11 +138,16 @@ function drawTables(allValues) {
     //set width of each table to the same as the textboxes
     let textboxRect = document.getElementsByClassName("input")[0].getBoundingClientRect();
     table.style.width = textboxRect.width + "px";
+
+
     for (let i = 0; i < numRows; i++) {
       let newRow = document.createElement("tr");
       for (let j = 0; j < numCols; j++) {
         let newCell = document.createElement("td");
         newCell.innerHTML = values[i][j]
+        if (i == 0 || j == 0) {
+          newCell.setAttribute("class", "label"); //make heading and left column gray
+        }
         newRow.appendChild(newCell);
       }
       table.appendChild(newRow);
@@ -185,11 +190,11 @@ function drawCatalog(allValues) {
   const allRows = []
   const firstRow = document.createElement("tr");
   firstRow.setAttribute("class", "catalog-table-row");
-  firstRow.setAttribute("id", "catalog-table-row-0");
+  firstRow.setAttribute("id", "catalog-table-heading");
   for (let i = -1; i < 12; i++) {
     //empty top left cell
     let newCell = document.createElement("td");
-    newCell.setAttribute("class", "catalog-cell");
+    newCell.setAttribute("class", "catalog-heading-cell");
     if (i == -1) {
       newCell.innerHTML = "";
     } else {
@@ -213,6 +218,7 @@ function drawCatalog(allValues) {
         let col1pitches = pitchesToUpper(allValues[index]['col1']);
         let col2pitches = pitchesToUpper(allValues[index]['col2']);
         newCell.innerHTML = col1pitches.join(" ") + " / " + col2pitches.join(" ");
+        newCell.setAttribute("class", "label");
       } else {
         let value = entry[j];
         newCell.innerHTML = value;
@@ -225,7 +231,8 @@ function drawCatalog(allValues) {
   for (let i = 0; i < allRows.length; i++) {
     catTable.appendChild(allRows[i]);
   }
-  allContent.appendChild(catTable);
+  catDiv.appendChild(catTable);
+  allContent.appendChild(catDiv);
 }
 
 function pitchesToUpper(pitches) {
