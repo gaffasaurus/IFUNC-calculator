@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IFUNC Calculator</title>
+  <style>
+    h1 {
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 95%;
+    }
+
+    .pitch-input {
+      padding: 3%;
+      margin: 1.5%;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      /* outline: 1px solid green; */
+    }
+
+    .input {
+      display: flex;
+      flex-direction: column;
+      width: 20%;
+      /* border: 1px solid black; */
+      align-self: center;
+      margin: 1%;
+    }
+
+    .generate {
+      margin: .5%;
+      display: flex;
+      justify-content: center;
+    }
+
+    #generate {
+      padding: 1%;
+      width: 10%;
+    }
+
+    .reset {
+      margin: 1.5%;
+      display: none;
+      justify-content: center;
+
+    }
+    #reset {
+      padding: 0.5%;
+      width: 4%;
+      background-color: lightgray;
+    }
+
+    #new-table {
+      padding: .5%;
+    }
+
+    .all-tables {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .table-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 1%;
+    }
+
+    .interval-table {
+      align-self: baseline;
+      margin-left: 1.5%;
+      margin-right: 1.5%;
+    }
+
+    tr, td {
+      outline: 2px solid black;
+      padding: 1%;
+    }
+
+    .catalog-table {
+      outline: 1px solid black;
+      /* align-self: center; */
+      width: 100%;
+    }
+
+    .catalog-table-row {
+
+    }
+
+    .catalog-cell {
+      padding: -1000%;
+    }
+
+  </style>
+</head>
+<body>
+  <h1 class="header" id="title">IFUNC Calculator</h1>
+  <h2>Separate pitches by spaces (ex. A B C# D etc...). Click the "+" button to add more entries.</h2>
+  <h2>Note: The interval is measured from Collection 1 to Collection 2. For example, if you input "C" in the first box and "E" in the second box, it will return "4".</h2>
+  <h2>Collection 1's input will populate Column 1 top to bottom, and Collection 2's input will populate Row 1 left to right.</h2>
+  <div class="content" id="content">
+    <div class="row" id="row-1">
+      <div class="input" id="first">
+        <input type="text" class="pitch-input" placeholder="Input pitches in 1st collection...">
+        <input type="text" class="pitch-input" placeholder="Input pitches in 2nd collection...">
+      </div>
+      <button type="button" id="add-table" onclick="addTable()">+</button>
+    </div>
+    <div class="generate" id="gen-div">
+      <button type="button" id="generate" onclick="generateTables()">Generate!</button>
+    </div>
+    <div class="reset" id="reset-div">
+      <button type="button" id="reset" onclick="reset()">Reset</button>
+    </div>
+  </div>
+
+</body>
+<script src="ifunc.js"></script>
+</html>
