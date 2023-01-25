@@ -212,7 +212,7 @@ function drawCatalog(allValues) {
         let index = table;
         let col1pitches = pitchesToUpper(allValues[index]['col1']);
         let col2pitches = pitchesToUpper(allValues[index]['col2']);
-        newCell.innerHTML = col1pitches.join(" ") + "/" + col2pitches.join(" ");
+        newCell.innerHTML = col1pitches.join(" ") + " / " + col2pitches.join(" ");
       } else {
         let value = entry[j];
         newCell.innerHTML = value;
